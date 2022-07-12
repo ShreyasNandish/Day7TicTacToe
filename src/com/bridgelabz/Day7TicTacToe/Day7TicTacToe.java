@@ -25,10 +25,35 @@ public class Day7TicTacToe {
         }
     }
 
+    //public static void updateBoard(int position, int player,board) {
+       public static char chooseLetter() {
+           char character;
+           Scanner sc = new Scanner(System.in);
+           System.out.println("Enter the character you want to choose :");
+           character = sc.next().charAt(0);
+           return character;
+       }
+
+       static char computerCharacter() {
+           char character = chooseLetter();
+           if (character == 'x' || character == 'X') {
+               return 'O';
+           } else {
+               return 'X';
+           }
+       }
+
+
+
 
     public static void main(String[] args) {
         createBoard(board);
         showBoard(board);
+        char character=chooseLetter();
+        System.out.println(character);
+        char symbol=computerCharacter();
+        System.out.println("The user selected symbol is :"+character);
+        System.out.println("The computer selected symbol is :"+symbol);
 
     }
 
