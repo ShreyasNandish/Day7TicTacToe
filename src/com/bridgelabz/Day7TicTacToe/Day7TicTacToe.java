@@ -70,6 +70,26 @@ public class Day7TicTacToe {
         updateBoard(position,board,computerCharacter);
         System.out.println("Computer moves to position "+position);
     }
+
+    static char doToss()
+    {
+        int option = (int) ((Math.random() * 10 % 2) + 1);
+        if(option==userPlayer)
+        {
+            System.out.println("user is playing the chance");
+            playerMove();
+            return userCharacter;
+
+        }
+        else
+        {
+            System.out.println("Computer is playing the chance");
+            computerMove();
+            return  computerCharacter;
+
+        }
+        // return option;
+    }
     static void updateBoard(int position,char[] board,char userCharacter){
 
         switch (position){
@@ -120,7 +140,7 @@ public class Day7TicTacToe {
     public static void main(String[] args) {
         createBoard(board);
         chooseLetter();
-        playerMove();
+        doToss();
         playerMove();
         computerMove();
         computerMove();
