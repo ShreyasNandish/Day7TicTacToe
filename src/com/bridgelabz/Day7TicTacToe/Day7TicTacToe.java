@@ -54,13 +54,24 @@ public class Day7TicTacToe {
         while(board[position]!='-')
         {
             System.out.println("Not a valid movie ");
+            System.out.println("Please enter other position as the given position is already occupied ");
             position=sc.nextInt();
         }
         updateBoard(position,board,userCharacter);
+        System.out.println("User moves to position "+position);
+    }
+
+    static void computerMove() {
+        position = (int) ((Math.random() * 10) % 9) + 1;
+        while (board[position]!='-')
+        {
+            position=(int)((Math.random()*10)%9)+1;
+        }
+        updateBoard(position,board,computerCharacter);
+        System.out.println("Computer moves to position "+position);
     }
     static void updateBoard(int position,char[] board,char userCharacter){
 
-        userCharacter=doToss();
         switch (position){
             case 1:
                 board[1]=userCharacter;
@@ -104,26 +115,20 @@ public class Day7TicTacToe {
 
     }
 
-        static char doToss()
-        {
-            int option = (int) ((Math.random() * 10 % 2) + 1);
-            if(option==userPlayer)
-            {
-                System.out.println("user is playing the chance");
-                return userCharacter;
-            }
-            else
-            {
-                System.out.println("Computer is playing the chance");
-                return  computerCharacter;
-            }
-           // return option;
-        }
+
 
     public static void main(String[] args) {
         createBoard(board);
         chooseLetter();
         playerMove();
+        playerMove();
+        computerMove();
+        computerMove();
+        playerMove();
+        playerMove();
+        computerMove();
+        computerMove();
+        computerMove();
 
     }
 
